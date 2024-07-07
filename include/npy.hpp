@@ -507,6 +507,7 @@ template <typename Scalar>
 inline npy_data<Scalar> read_npy(const std::string &filename) {
   std::ifstream stream(filename, std::ifstream::binary);
   if (!stream) {
+      std::cerr << "error in file: " << filename << std::endl;
     throw std::runtime_error("io error: failed to open a file.");
   }
 
@@ -531,6 +532,7 @@ template <typename Scalar>
 inline void write_npy(const std::string &filename, const npy_data<Scalar> &data) {
   std::ofstream stream(filename, std::ofstream::binary);
   if (!stream) {
+      std::cerr << "error in file: " << filename << std::endl;
     throw std::runtime_error("io error: failed to open a file.");
   }
 
@@ -553,6 +555,7 @@ template <typename Scalar>
 inline void write_npy(const std::string &filename, const npy_data_ptr<Scalar> &data_ptr) {
   std::ofstream stream(filename, std::ofstream::binary);
   if (!stream) {
+      std::cerr << "error in file: " << filename << std::endl;
     throw std::runtime_error("io error: failed to open a file.");
   }
 
